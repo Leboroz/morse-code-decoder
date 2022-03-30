@@ -32,21 +32,21 @@ def decode_char(morse_char)
 end
 
 def decode_word(word)
-  word.split(/ /).map {|single|
+  word.split(/ /).map do |single|
     decode_char(single)
-  }.join
+  end.join
 end
 
 def decode(string)
-  string.split(/   /).map{|single|
+  string.split(/   /).map do |single|
     decode_word(single)
-  }.join(' ')
+  end.join(' ')
 end
 
 puts decode_char '.-'
 
 puts decode_word('-- -.--')
 
-puts decode("-- -.--   -. .- -- .")
+puts decode('-- -.--   -. .- -- .')
 
-puts decode(".-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...")
+puts decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
