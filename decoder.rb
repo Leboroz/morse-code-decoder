@@ -40,6 +40,20 @@ def decode_word(word)
   final_word
 end
 
+def decode(string)
+  final_string = ''
+
+  string.split(/   /).each do |single|
+    final_string += decode_word(single)
+    final_string += " "
+  end
+  final_string
+end
+
 puts decode_char '.-'
 
 puts decode_word('-- -.--')
+
+puts decode("-- -.--   -. .- -- .")
+
+puts decode(".-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...")
