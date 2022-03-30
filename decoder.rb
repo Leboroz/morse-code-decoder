@@ -32,22 +32,15 @@ def decode_char(morse_char)
 end
 
 def decode_word(word)
-  final_word = ''
-
-  word.split(/ /).each do |single|
-    final_word += decode_char(single)
-  end
-  final_word
+  word.split(/ /).map {|single|
+    decode_char(single)
+  }.join
 end
 
 def decode(string)
-  final_string = ''
-
-  string.split(/   /).each do |single|
-    final_string += decode_word(single)
-    final_string += " "
-  end
-  final_string
+  string.split(/   /).map{|single|
+    decode_word(single)
+  }.join(' ')
 end
 
 puts decode_char '.-'
